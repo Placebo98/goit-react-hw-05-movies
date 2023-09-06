@@ -1,4 +1,5 @@
 import HomePage from 'Pages/Home/HomePage';
+import { fetchPopularFilms } from 'api';
 import { Link, Route, Routes } from 'react-router-dom';
 
 export const App = () => {
