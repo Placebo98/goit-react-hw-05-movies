@@ -7,8 +7,9 @@ export const fetchPopularMovies = async () => {
   try {
     const response = await axios.get(
       `${BASE_URL}/trending/all/day?api_key=${API_KEY}`
+      // `${BASE_URL}/trending/movie/day?api_key=${API_KEY}`
     );
-    return response.data;
+    return response.data.results;
   } catch (error) {
     console.error(typeof error);
   }

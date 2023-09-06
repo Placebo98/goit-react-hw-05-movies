@@ -1,24 +1,35 @@
 import { fetchPopularMovies } from 'api';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     const getMovies = async () => {
-      setMovies(await fetchPopularMovies());
+      const popularMovies = await fetchPopularMovies();
+      setMovies(popularMovies);
+      console.log(popularMovies);
     };
-
     getMovies();
   }, []);
-  console.log(fetchPopularMovies());
+
   return (
     <div>
       <h1>Trending Today</h1>
       <ul>
         {movies.map(movie => (
           <li key={movie.id}>
-            <h2>{movie.name}</h2>
+            <Link to={`/movies/${movie.id}`}>
+              <h2>{movie.title || movie.name}</h2>
+              <img
+                src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                alt={movie.title || movie.name}
+                width="240px"
+              >
+                {}
+              </img>
+            </Link>
           </li>
         ))}
       </ul>
