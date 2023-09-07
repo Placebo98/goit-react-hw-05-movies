@@ -26,9 +26,7 @@ const HomePage = () => {
                 src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
                 alt={movie.title || movie.name}
                 width="240px"
-              >
-                {}
-              </img>
+              />
             </Link>
           </li>
         ))}
