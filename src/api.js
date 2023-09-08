@@ -30,7 +30,7 @@ export const fetchMoviesByQuery = async query => {
     const response = await axios.get(
       `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}`
     );
-    return response.data;
+    return response.data.results;
   } catch (error) {
     console.error(typeof error);
   }

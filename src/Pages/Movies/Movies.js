@@ -16,6 +16,7 @@ const MoviesPage = () => {
       return Notiflix.Notify.failure('Потрібні параметри пошуку');
     }
     setSearchParams({ query: newQuery });
+    setMovies([]);
   };
 
   useEffect(() => {
@@ -28,6 +29,7 @@ const MoviesPage = () => {
           return Notiflix.Notify.failure('таких фільмів не знайдено');
         } else {
           setMovies(getMovies);
+          console.log(getMovies);
         }
       } catch (error) {
         console.log(error);
