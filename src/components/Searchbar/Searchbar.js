@@ -20,7 +20,7 @@ export const SearchBar = ({ onSubmit }) => {
         <SearchBarButton type="submit">
           <BsFillSearchHeartFill size={25} color="black" />
         </SearchBarButton>
-        <SearchBarInput name="query" type="text" placeholder="dog" />
+        <SearchBarInput name="query" type="text" placeholder="назва фільму" />
       </SearchBarForm>
     </SearchBarWrapper>
   );

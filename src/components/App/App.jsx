@@ -1,4 +1,5 @@
 import HomePage from 'Pages/Home/HomePage';
+import MoviesPage from 'Pages/Movies/Movies';
 import { OneMoviePage } from 'Pages/OneMoviePage/OneMoviePage';
 import { Link, Route, Routes } from 'react-router-dom';
 
@@ -17,7 +18,7 @@ export const App = () => {
       </nav>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/movies" element={<div>Movies</div>} />
+        <Route path="/movies" element={<MoviesPage />} />
         <Route path="/movies/:id" element={<OneMoviePage />} />
       </Routes>
     </div>

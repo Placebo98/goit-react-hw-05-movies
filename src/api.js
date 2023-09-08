@@ -24,3 +24,14 @@ export const fetchMoviesByID = async id => {
     console.error(typeof error);
   }
 };
+
+export const fetchMoviesByQuery = async query => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error(typeof error);
+  }
+};
