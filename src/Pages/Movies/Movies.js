@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import Notiflix from 'notiflix';
 import { fetchMoviesByQuery } from 'api';
+import { defaultImg } from 'Pages/OneMoviePage/OneMoviePage';
 
 const { SearchBar } = require('components/Searchbar/Searchbar');
 
@@ -20,7 +21,7 @@ const MoviesPage = () => {
   };
 
   useEffect(() => {
-    if (query === '') return;
+    if (!query) return;
 
     const fetchMovies = async () => {
       try {
@@ -50,7 +51,11 @@ const MoviesPage = () => {
               <Link to={`/movies/${movie.id}`}>
                 <h2>{movie.title || movie.name}</h2>
                 <img
-                  src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                  src={
+                    movie.poster_path
+                      ? `https://image.tmdb.org/t/p/w300${movie.poster_path}`
+                      : defaultImg
+                  }
                   alt={movie.title || movie.name}
                   width="240px"
                 />

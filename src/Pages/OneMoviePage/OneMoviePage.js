@@ -2,7 +2,7 @@ import { fetchMoviesByID } from 'api';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const defaultImg =
+export const defaultImg =
   '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700>';
 
 export const OneMoviePage = () => {
