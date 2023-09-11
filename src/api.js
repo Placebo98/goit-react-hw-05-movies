@@ -35,3 +35,14 @@ export const fetchMoviesByQuery = async query => {
     console.error(typeof error);
   }
 };
+
+export const fetchCastbyId = async id => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error(typeof error);
+  }
+};

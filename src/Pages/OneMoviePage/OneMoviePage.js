@@ -1,12 +1,14 @@
 import { fetchMoviesByID } from 'api';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 export const defaultImg =
   '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700>';
 
 export const OneMoviePage = () => {
   const [movie, setMovie] = useState({});
+
+  const { movieId } = useParams();
 
   const { id } = useParams();
 
@@ -15,7 +17,7 @@ export const OneMoviePage = () => {
       try {
         const oneMovie = await fetchMoviesByID(id);
         setMovie(oneMovie);
-        console.log(oneMovie);
+        // console.log(oneMovie);
       } catch (error) {
         console.log(error);
       }
@@ -23,7 +25,7 @@ export const OneMoviePage = () => {
 
     getMovieCard();
   }, [id]);
-  console.log(movie);
+  // console.log(movie);
 
   return (
     <div>
@@ -49,6 +51,10 @@ export const OneMoviePage = () => {
             ? movie.genres.map(genre => genre.name).join(', ')
             : 'Поля жанрів не заповнено'}
         </p>
+      </div>
+      <div>
+        <h3>Additional information</h3>
+        <Link to={`/movies/${movieId}/cast`}>Cast</Link>
       </div>
     </div>
   );
