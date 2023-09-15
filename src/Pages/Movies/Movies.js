@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
+import { useSearchParams, Link, useLocation } from 'react-router-dom';
 import Notiflix from 'notiflix';
 import { fetchMoviesByQuery } from 'api';
 import { defaultImg } from 'Pages/OneMoviePage/OneMoviePage';
@@ -11,6 +11,8 @@ const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
   //   const [query, setQuery] = useState('');
+
+  const location = useLocation();
 
   const changeQuery = newQuery => {
     if (newQuery === query) {
@@ -48,7 +50,7 @@ const MoviesPage = () => {
         <ul>
           {movies.map(movie => (
             <li key={movie.id}>
-              <Link to={`/movies/${movie.id}`}>
+              <Link to={`/movies/${movie.id}`} state={{ from: location }}>
                 <h2>{movie.title || movie.name}</h2>
                 <img
                   src={

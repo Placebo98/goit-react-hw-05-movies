@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 export const Cast = () => {
+  const { id } = useParams();
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
   const [loading, setLoading] = useState(false);

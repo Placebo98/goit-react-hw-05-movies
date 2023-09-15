@@ -1,6 +1,6 @@
 import { fetchMoviesByID } from 'api';
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 
 export const defaultImg =
   '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700>';
@@ -11,6 +11,8 @@ export const OneMoviePage = () => {
   const { movieId } = useParams();
 
   const { id } = useParams();
+
+  const location = useLocation();
 
   useEffect(() => {
     async function getMovieCard() {
@@ -27,8 +29,11 @@ export const OneMoviePage = () => {
   }, [id]);
   // console.log(movie);
 
+  const goBackLink = location?.state?.from ?? '/';
+
   return (
     <div>
+      <Link to={goBackLink}> Go Back</Link>
       <div>
         <img
           src={
