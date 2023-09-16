@@ -46,3 +46,14 @@ export const fetchCastById = async id => {
     console.error(typeof error);
   }
 };
+
+export const fetchReviewsById = async id => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/movie/${id}/reviews?api_key=${API_KEY}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error(typeof error);
+  }
+};

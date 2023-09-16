@@ -1,4 +1,6 @@
 import { fetchMoviesByID } from 'api';
+import { Cast } from 'components/Cast/Cast';
+import { Reviews } from 'components/Reviews/Reviews';
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 
@@ -7,7 +9,8 @@ export const defaultImg =
 
 export const OneMoviePage = () => {
   const [movie, setMovie] = useState({});
-
+  const [showCast, setShowCast] = useState(false);
+  const [showReviews, setShowReviews] = useState(false);
   const { movieId } = useParams();
 
   const { id } = useParams();
@@ -59,7 +62,42 @@ export const OneMoviePage = () => {
       </div>
       <div>
         <h3>Additional information</h3>
-        <Link to={`/movies/${movieId}/cast`}>Cast</Link>
+        <ul>
+          <li>
+            <Link
+              to={`/movies/${id}/cast`}
+              onClick={() => {
+                setShowCast(true);
+                setShowReviews(false);
+              }}
+            >
+              Cast
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={`/movies/${id}/reviews`}
+              onClick={() => {
+                setShowReviews(true);
+                setShowCast(false);
+              }}
+            >
+              Reviews
+            </Link>
+            <button
+              type="button"
+              onClick={() => {
+                setShowReviews(false);
+                setShowCast(false);
+              }}
+            >
+              {' '}
+              Closse All
+            </button>
+          </li>
+        </ul>
+        {showCast && <Cast id={id} />}
+        {showReviews && <Reviews id={id} />}
       </div>
     </div>
   );
