@@ -21,9 +21,9 @@ export const Cast = () => {
     getCast();
   }, [movieId]);
 
-  //   return (
-  //     <div>
-  //       <ul>{}</ul>
-  //     </div>
-  //   );
+  return (
+    <div>
+      <ul>{cast.map()}</ul>
+    </div>
+  );
 };
