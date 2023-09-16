@@ -11,10 +11,7 @@ export const OneMoviePage = () => {
   const [movie, setMovie] = useState({});
   const [showCast, setShowCast] = useState(false);
   const [showReviews, setShowReviews] = useState(false);
-  const { movieId } = useParams();
-
   const { id } = useParams();
-
   const location = useLocation();
 
   useEffect(() => {
