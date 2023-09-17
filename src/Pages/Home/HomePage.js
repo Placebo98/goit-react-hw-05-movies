@@ -21,14 +21,14 @@ const HomePage = () => {
       <List>
         {movies.map(movie => (
           <Item key={movie.id}>
-            <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+            <FilmLink to={`/movies/${movie.id}`} state={{ from: location }}>
               <img
                 src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
                 alt={movie.title || movie.name}
                 width="240px"
               />
               <h2>{movie.title || movie.name}</h2>
-            </Link>
+            </FilmLink>
           </Item>
         ))}
       </List>
