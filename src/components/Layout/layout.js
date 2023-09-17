@@ -1,11 +1,11 @@
 import { Loader } from 'components/Loader/Loader';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { List, LinkStyle } from '../Layout/layoyt.styled';
+import { List, LinkStyle, Container } from '../Layout/layoyt.styled';
 
 export const Layout = () => {
   return (
-    <div>
+    <Container>
       <nav>
         <List>
           <li>
@@ -20,6 +20,6 @@ export const Layout = () => {
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-    </div>
+    </Container>
   );
 };

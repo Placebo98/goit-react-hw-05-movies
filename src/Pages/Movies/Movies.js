@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useSearchParams, Link, useLocation } from 'react-router-dom';
+import { useSearchParams, useLocation } from 'react-router-dom';
 import Notiflix from 'notiflix';
 import { fetchMoviesByQuery } from 'api';
 import { defaultImg } from 'Pages/OneMoviePage/OneMoviePage';
+import { Title, List, FilmLink, Item, Img, FilmTitle } from './Movies.styled';
 
 const { SearchBar } = require('components/Searchbar/Searchbar');
 
@@ -47,12 +48,12 @@ const MoviesPage = () => {
         <SearchBar onSubmit={changeQuery} />
       </div>
       <div>
-        <ul>
+        <List>
           {movies.map(movie => (
-            <li key={movie.id}>
-              <Link to={`/movies/${movie.id}`} state={{ from: location }}>
-                <h2>{movie.title || movie.name}</h2>
-                <img
+            <Item key={movie.id}>
+              <FilmLink to={`/movies/${movie.id}`} state={{ from: location }}>
+                <FilmTitle>{movie.title || movie.name}</FilmTitle>
+                <Img
                   src={
                     movie.poster_path
                       ? `https://image.tmdb.org/t/p/w300${movie.poster_path}`
@@ -61,10 +62,10 @@ const MoviesPage = () => {
                   alt={movie.title || movie.name}
                   width="240px"
                 />
-              </Link>
-            </li>
+              </FilmLink>
+            </Item>
           ))}
-        </ul>
+        </List>
       </div>
     </div>
   );

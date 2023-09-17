@@ -1,7 +1,7 @@
 import { fetchPopularMovies } from 'api';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Title, List, FilmLink, Item } from './HomePage.styled';
+import { Title, List, FilmLink, Item, Img, FilmTitle } from './HomePage.styled';
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -22,12 +22,12 @@ const HomePage = () => {
         {movies.map(movie => (
           <Item key={movie.id}>
             <FilmLink to={`/movies/${movie.id}`} state={{ from: location }}>
-              <img
+              <Img
                 src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
                 alt={movie.title || movie.name}
                 width="240px"
               />
-              <h2>{movie.title || movie.name}</h2>
+              <FilmTitle>{movie.title || movie.name}</FilmTitle>
             </FilmLink>
           </Item>
         ))}

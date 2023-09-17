@@ -17,3 +17,10 @@ export const LinkStyle = styled(Link)`
     color: #e9c864;
   }
 `;
+
+export const Container = styled.div`
+  display: block;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+`;
