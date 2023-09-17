@@ -3,7 +3,7 @@ import { fetchCastById } from 'api';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-export const Cast = () => {
+const Cast = () => {
   const { id } = useParams();
   const [cast, setCast] = useState([]);
 
@@ -12,7 +12,6 @@ export const Cast = () => {
       try {
         const fetchCast = await fetchCastById(id);
         setCast(fetchCast);
-        console.log(fetchCast);
       } catch (error) {
         console.log(error);
       }
@@ -42,3 +41,5 @@ export const Cast = () => {
     </div>
   );
 };
+
+export default Cast;

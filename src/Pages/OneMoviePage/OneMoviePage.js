@@ -1,13 +1,13 @@
 import { fetchMoviesByID } from 'api';
-import { Cast } from 'components/Cast/Cast';
-import { Reviews } from 'components/Reviews/Reviews';
+import Cast from 'components/Cast/Cast';
+import Reviews from 'components/Reviews/Reviews';
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 
 export const defaultImg =
   '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700>';
 
-export const OneMoviePage = () => {
+const OneMoviePage = () => {
   const [movie, setMovie] = useState({});
   const [showCast, setShowCast] = useState(false);
   const [showReviews, setShowReviews] = useState(false);
@@ -19,7 +19,6 @@ export const OneMoviePage = () => {
       try {
         const oneMovie = await fetchMoviesByID(id);
         setMovie(oneMovie);
-        // console.log(oneMovie);
       } catch (error) {
         console.log(error);
       }
@@ -27,7 +26,6 @@ export const OneMoviePage = () => {
 
     getMovieCard();
   }, [id]);
-  // console.log(movie);
 
   const goBackLink = location?.state?.from ?? '/';
 
@@ -57,6 +55,7 @@ export const OneMoviePage = () => {
             : 'Поля жанрів не заповнено'}
         </p>
       </div>
+      <hr />
       <div>
         <h3>Additional information</h3>
         <ul>
@@ -93,9 +92,12 @@ export const OneMoviePage = () => {
             </button>
           </li>
         </ul>
+        <hr />
         {showCast && <Cast id={id} />}
         {showReviews && <Reviews id={id} />}
       </div>
     </div>
   );
 };
+
+export default OneMoviePage;

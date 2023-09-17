@@ -10,7 +10,6 @@ const HomePage = () => {
     const getMovies = async () => {
       const popularMovies = await fetchPopularMovies();
       setMovies(popularMovies);
-      // console.log(popularMovies);
     };
     getMovies();
   }, []);

@@ -2,7 +2,7 @@ import { fetchReviewsById } from 'api';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-export const Reviews = () => {
+const Reviews = () => {
   const { id } = useParams();
   const [reviews, setReviews] = useState([]);
 
@@ -11,7 +11,6 @@ export const Reviews = () => {
       try {
         const fetchReviews = await fetchReviewsById(id);
         setReviews(fetchReviews.results);
-        console.log(fetchReviews);
       } catch (error) {
         console.log(error);
       }
@@ -39,3 +38,5 @@ export const Reviews = () => {
     </div>
   );
 };
+
+export default Reviews;
