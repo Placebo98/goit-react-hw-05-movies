@@ -3,7 +3,7 @@ import { useSearchParams, useLocation } from 'react-router-dom';
 import Notiflix from 'notiflix';
 import { fetchMoviesByQuery } from 'api';
 import { defaultImg } from 'Pages/OneMoviePage/OneMoviePage';
-import { Title, List, FilmLink, Item, Img, FilmTitle } from './Movies.styled';
+import { List, FilmLink, Item, Img, FilmTitle } from './Movies.styled';
 
 const { SearchBar } = require('components/Searchbar/Searchbar');
 
