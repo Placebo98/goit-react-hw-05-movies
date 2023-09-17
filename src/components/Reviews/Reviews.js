@@ -24,7 +24,7 @@ const Reviews = () => {
 
   return (
     <div>
-      <p>fwdgfwefw</p>
+      <h2>Reviews</h2>
       <ul>
         {reviews.map(review => (
           <li key={review.id}>
