@@ -1,6 +1,6 @@
 import { Loader } from 'components/Loader/Loader';
 import { Suspense } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { List, LinkStyle } from '../Layout/layoyt.styled';
 
 export const Layout = () => {
