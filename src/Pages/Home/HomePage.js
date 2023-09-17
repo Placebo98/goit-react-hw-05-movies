@@ -1,6 +1,6 @@
 import { fetchPopularMovies } from 'api';
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { Title, List, FilmLink, Item } from './HomePage.styled';
 
 const HomePage = () => {
